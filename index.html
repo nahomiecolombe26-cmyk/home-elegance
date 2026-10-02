@@ -1,0 +1,3121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elegance Home Multi Service - Expert en entretien de fauteuils, canapés, matelas et nettoyage à domicile en Côte d'Ivoire. Service haut de gamme rapide et fiable." />
+  <title>Elegance Home Multi Service — Entretien Premium en Côte d'Ivoire</title>
+  
+  <!-- Google Fonts: Outfit (Titres) & Inter (Corps) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="animations.css">
+
+  <style>
+    :root {
+      --primary: #0f4c81;        /* Bleu Navy Classique */
+      --primary-light: #1d72b8;  /* Bleu Royal Éclatant */
+      --primary-dark: #072b4d;   /* Bleu Profond Nuit */
+      --secondary: #e5a93b;      /* Or Chaud / Ambre */
+      --secondary-hover: #cb922a;
+      --dark: #0f172a;           /* Ardoise Foncée */
+      --light: #f8fafc;          /* Blanc Neige */
+      --text: #334155;           /* Gris Ardoise */
+      --text-muted: #64748b;     /* Gris Muted */
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+      --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --shadow-gold: 0 10px 25px -5px rgba(229, 169, 59, 0.3);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: #f6f9fc;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Utilitaires d'Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 rgba(37, 211, 102, 0.2); }
+      50% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, var(--secondary), #f3c66f);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 1.3rem;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 4px 10px rgba(229, 169, 59, 0.2);
+    }
+
+    .logo-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: var(--transition);
+      padding: 6px 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-btn {
+      background: var(--secondary);
+      color: var(--primary-dark);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-btn:hover {
+      background: var(--white);
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .admin-lock-btn {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .admin-lock-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      padding: 9px 13px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .admin-lock-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .admin-lock-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .admin-lock-card {
+      width: min(420px, 100%);
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.28);
+    }
+
+    .admin-lock-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: -8px 0 16px;
+      padding: 7px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text-muted);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .admin-lock-back:hover {
+      color: var(--primary);
+      border-color: var(--primary-light);
+      background: rgba(29, 114, 184, 0.06);
+    }
+
+    .admin-lock-card h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .admin-lock-card p {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .admin-lock-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .admin-lock-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      outline: none;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .admin-lock-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.08);
+    }
+
+    .admin-lock-submit {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      padding: 14px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .admin-lock-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 15px 30px rgba(15, 76, 129, 0.2);
+    }
+
+    .admin-lock-submit:disabled {
+      opacity: 0.7;
+      cursor: wait;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .admin-lock-hint {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: 12px;
+    }
+
+    .admin-lock-status {
+      min-height: 1.3em;
+      margin: 10px 0 0 !important;
+      color: #b42318 !important;
+      font-size: 0.85rem !important;
+      text-align: center;
+    }
+
+    .admin-lock-status:empty {
+      display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 64px 0;
+      background: radial-gradient(circle at 90% 10%, rgba(29, 114, 184, 0.12) 0%, rgba(246, 249, 252, 0) 60%),
+                  radial-gradient(circle at 10% 90%, rgba(229, 169, 59, 0.08) 0%, #f6f9fc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 76, 129, 0.08);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border: 1px solid rgba(15, 76, 129, 0.15);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+      max-width: 600px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 10px 20px rgba(15, 76, 129, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(29, 114, 184, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary-dark);
+      border: 1px solid rgba(15, 76, 129, 0.15);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 76, 129, 0.03);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-gold {
+      background: var(--secondary);
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-gold:hover {
+      background: var(--secondary-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(229, 169, 59, 0.4);
+    }
+
+    .hero-card-wrapper {
+      position: relative;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(15, 76, 129, 0.05);
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-card h3 svg {
+      color: var(--secondary);
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .hero-card li svg {
+      color: var(--primary-light);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Hero Visual with Photos Duo */
+    .hero-visual-wrapper {
+      position: relative;
+      min-width: 0;
+    }
+
+    .hero-photos-duo {
+      position: relative;
+      width: 100%;
+      height: min(62vh, 590px);
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-photo-card {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border: 0;
+      background: var(--primary-dark);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .hero-photo-card.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-photo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .hero-photo-card:hover {
+      z-index: 2;
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.84);
+      backdrop-filter: blur(8px);
+      color: var(--white);
+      padding: 7px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-carousel-controls {
+      position: absolute;
+      z-index: 3;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-carousel-controls button {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .hero-carousel-controls button:hover,
+    .hero-carousel-controls button[aria-current="true"] {
+      background: var(--secondary);
+      color: var(--primary-dark);
+    }
+
+    .hero-photo-badge .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      flex-shrink: 0;
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 18px 0;
+      background: var(--primary-dark);
+      color: var(--white);
+      position: relative;
+      z-index: 10;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--secondary);
+      margin-bottom: 2px;
+      font-weight: 800;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* Services Section */
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .subtitle {
+      color: var(--secondary);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title-wrap h2 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+    }
+
+    .section-title-wrap p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      border: 1px solid rgba(15, 76, 129, 0.03);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+
+    .service-action {
+      margin-top: 16px;
+      padding: 9px 16px;
+      border: 1px solid rgba(15, 76, 129, 0.2);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--primary);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .service-action:hover,
+    .service-action:focus-visible {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon-box {
+      background: rgba(15, 76, 129, 0.06);
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      margin-bottom: 25px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon-box {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .service-price {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .service-price span {
+      color: var(--secondary);
+      font-size: 1.25rem;
+    }
+
+    /* Calculator Section - NEW Premium Feature */
+    .calculator-section {
+      background: linear-gradient(135deg, #072b4d 0%, #0f172a 100%);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 60px 50px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calculator-section::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: rgba(29, 114, 184, 0.15);
+      border-radius: 50%;
+      filter: blur(50px);
+    }
+
+    .calc-title h2 {
+      color: var(--white);
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      margin-top: 40px;
+      align-items: center;
+    }
+
+    .calc-options {
+      display: grid;
+      gap: 24px;
+    }
+
+    .calc-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .calc-group label {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .calc-select-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .calc-type-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      padding: 15px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .calc-type-btn svg {
+      width: 24px;
+      height: 24px;
+      color: rgba(255, 255, 255, 0.6);
+      transition: var(--transition);
+    }
+
+    .calc-type-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--secondary);
+    }
+
+    .calc-type-btn.active {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      box-shadow: 0 4px 15px rgba(29, 114, 184, 0.4);
+    }
+
+    .calc-type-btn.active svg {
+      color: var(--secondary);
+    }
+
+    .calc-slider-wrap {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .calc-val-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .calc-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.15);
+      outline: none;
+    }
+
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(229, 169, 59, 0.5);
+      transition: var(--transition);
+    }
+
+    .calc-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .calc-subopt {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px;
+      color: var(--white);
+      outline: none;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .calc-subopt option {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .calc-result-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .calc-result-card p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .calc-price {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--secondary);
+      font-family: 'Outfit', sans-serif;
+      margin: 10px 0;
+    }
+
+    .calc-price span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .about-features {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--white);
+      padding: 16px 22px;
+      border-radius: 15px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(15, 76, 129, 0.03);
+    }
+
+    .about-feature-item svg {
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .about-feature-item span {
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* About Section Visual & Interactive Gallery */
+    .about-visual-box {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(15, 76, 129, 0.08);
+      position: relative;
+    }
+
+    .about-photo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 4px 8px;
+    }
+
+    .about-photo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 76, 129, 0.08);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .about-photo-location {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    .about-photo-main-frame {
+      width: 100%;
+      height: 360px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .about-photo-main-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+
+    .about-photo-main-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-photo-zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .about-photo-main-frame:hover .about-photo-zoom-hint {
+      opacity: 1;
+    }
+
+    .about-thumbnails-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .about-thumb-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8fafc;
+      border: 2px solid transparent;
+      border-radius: 14px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+    }
+
+    .about-thumb-btn:hover {
+      background: #eef4f9;
+      border-color: rgba(15, 76, 129, 0.2);
+    }
+
+    .about-thumb-btn.active {
+      background: #eef4f9;
+      border-color: var(--primary);
+    }
+
+    .about-thumb-btn img {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .about-thumb-info strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+
+    .about-thumb-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .director-quote-box {
+      margin-top: 25px;
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.04), rgba(229, 169, 59, 0.05));
+      border-left: 4px solid var(--secondary);
+      border-radius: 0 16px 16px 0;
+      padding: 18px 22px;
+      font-style: italic;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .director-quote-author {
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .director-quote-author span {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Custom CSS Mock Dashboard (Visual Only) */
+    .dashboard-wrap {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .dashboard-panel {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(15, 76, 129, 0.05);
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .dashboard-tag {
+      background: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .mini-card {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      text-align: center;
+    }
+
+    .mini-card small {
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .mini-card strong {
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .bars {
+      display: grid;
+      gap: 20px;
+    }
+
+    .bar-item {
+      display: grid;
+      gap: 8px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(148, 163, 184, 0.15);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .bar-fill.bar-1 { width: 92%; }
+    .bar-fill.bar-2 { width: 84%; }
+    .bar-fill.bar-3 { width: 96%; }
+
+    .dashboard-side {
+      background: linear-gradient(135deg, var(--primary-dark), #0d385f);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 35px 30px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dashboard-side h4 {
+      color: var(--white);
+      font-size: 1.25rem;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .kpi-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .kpi-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: var(--transition);
+    }
+
+    .kpi-list li:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(3px);
+    }
+
+    .kpi-list span {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+    }
+
+    .kpi-list strong {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* CTA Section */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #0c2d4a 100%);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 50px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: rgba(229, 169, 59, 0.1);
+      border-radius: 50%;
+      top: -30px;
+      left: -30px;
+    }
+
+    .cta-banner h3 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.05rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 35px 30px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(15, 76, 129, 0.03);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-card-icon {
+      background: rgba(229, 169, 59, 0.1);
+      color: var(--secondary-hover);
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Pricing Section */
+    .pricing-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 40px 35px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(15, 76, 129, 0.04);
+      position: relative;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--secondary);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-7px);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-card-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--secondary);
+      color: var(--primary-dark);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .pricing-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .pricing-value span {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .pricing-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      min-height: 48px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      display: grid;
+      gap: 14px;
+      margin-bottom: 35px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .pricing-features li svg {
+      color: #22c55e;
+      flex-shrink: 0;
+    }
+
+    /* Intervention Zones */
+    .zones-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(15, 76, 129, 0.03);
+    }
+
+    .zones-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .zone-block h4 {
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .zone-block h4 svg {
+      color: var(--secondary);
+    }
+
+    .zone-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .zone-tag {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .zone-tag:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .gallery-card {
+      min-height: 250px;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 20px;
+      padding: 30px;
+      color: var(--white);
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: zoom-in;
+    }
+
+    .gallery-card:focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 4px;
+    }
+
+    .gallery-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0) 20%, rgba(15,23,42,0.85) 100%);
+      transition: var(--transition);
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-card:hover::before {
+      background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.9) 100%);
+    }
+
+    .gallery-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-1 {
+      background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80');
+    }
+    .gallery-2 {
+      background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80');
+    }
+    .gallery-3 {
+      background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80');
+    }
+
+    .video-news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 24px;
+    }
+
+    .video-news-card {
+      overflow: hidden;
+      border: 1px solid rgba(15, 76, 129, 0.08);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .video-news-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      border: 0;
+      background: var(--primary-dark);
+    }
+
+    .video-news-copy {
+      padding: 18px 20px 20px;
+    }
+
+    .video-news-copy h3 {
+      margin-bottom: 7px;
+      font-size: 1.15rem;
+    }
+
+    .video-news-copy p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      white-space: pre-line;
+    }
+
+    .video-news-copy time {
+      display: block;
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(15, 76, 129, 0.03);
+      position: relative;
+    }
+
+    .testimonial-card-quote {
+      font-size: 2.5rem;
+      color: rgba(229, 169, 59, 0.2);
+      font-family: 'Outfit', sans-serif;
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      line-height: 1;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 15px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--white);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .author-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .author-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #0a2035 100%);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 60px 50px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-info h2 {
+      color: var(--white);
+      font-size: 2.3rem;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-info p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.05rem;
+      margin-bottom: 35px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-icon-box {
+      background: rgba(255, 255, 255, 0.08);
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+    }
+
+    .contact-details span {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .contact-details a, .contact-details p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      margin: 0;
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--secondary);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(229, 169, 59, 0.2);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      background: #08111f;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    /* Floating WhatsApp Widget */
+    .floating-whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 99;
+      animation: pulse-glow 2.4s ease-in-out infinite, float 4s ease-in-out infinite;
+      transition: var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .welcome-audio-toggle {
+      position: fixed;
+      left: 22px;
+      bottom: 25px;
+      z-index: 99;
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--primary-dark);
+      color: var(--white);
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+    }
+
+    .welcome-audio-toggle:hover,
+    .welcome-audio-toggle:focus-visible {
+      background: var(--primary);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 900px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 18px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: var(--white);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: var(--transition);
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid, .services-grid, .features-grid, .pricing-card-grid, .gallery-grid, .testimonial-grid, .about-grid, .contact-grid, .calc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero-card {
+        margin-top: 30px;
+      }
+
+      .hero-photos-duo {
+        height: 440px;
+        min-height: 0;
+        margin-top: 8px;
+      }
+
+      .about-visual-box {
+        margin-top: 30px;
+      }
+
+      .dashboard-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px;
+      }
+
+      .cta-banner .btn {
+        width: 100%;
+      }
+
+      .calc-select-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        background: var(--primary-dark);
+        box-shadow: var(--shadow-lg);
+      }
+      .nav-links.is-open {
+        display: flex;
+      }
+      .nav-links a,
+      .nav-links .admin-lock-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .mobile-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .stats-grid { gap: 8px; }
+      .stat-item h3 { font-size: 1.4rem; }
+      .stat-item p { font-size: 0.7rem; }
+      .zones-grid {
+        grid-template-columns: 1fr;
+      }
+      .calculator-section, .contact {
+        padding: 30px 20px;
+      }
+      .hero-photos-duo {
+        height: 360px;
+      }
+      .about-thumbnails-row {
+        grid-template-columns: 1fr;
+      }
+      .about-photo-main-frame {
+        height: 260px;
+      }
+      .welcome-audio-toggle {
+        left: 12px;
+        bottom: 16px;
+        padding: 10px 12px;
+        font-size: 0.75rem;
+      }
+      .floating-whatsapp {
+        right: 12px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo-container">
+        <div class="logo-icon">E</div>
+        <div class="logo-text">Elegance<span>Home</span></div>
+      </a>
+      <nav class="nav-links" id="siteNavigation">
+        <a href="#services">Services</a>
+        <a href="#calculateur">Tarifs</a>
+        <a href="#apropos">À propos</a>
+        <button type="button" class="admin-lock-btn" id="openAdminLock">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+          Admin
+        </button>
+        <a href="#contact" class="nav-btn">Nous Contacter</a>
+      </nav>
+      <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-expanded="false" aria-controls="siteNavigation">
+        <span aria-hidden="true">☰</span> Menu
+      </button>
+    </div>
+  </header>
+
+  <div class="admin-lock-overlay hidden" id="adminLockOverlay">
+    <div class="admin-lock-card">
+      <button type="button" class="admin-lock-back" id="closeAdminLock">← Retour</button>
+      <h3>Accès Admin</h3>
+      <p>Entrez le code pour accéder au tableau de bord.</p>
+      <form class="admin-lock-form" id="adminLockForm">
+        <input class="admin-lock-input" type="password" id="adminCodeInput" placeholder="Code d’accès" autocomplete="current-password" required />
+        <button type="submit" class="admin-lock-submit">Ouvrir le dashboard</button>
+      </form>
+      <p class="admin-lock-status" id="adminLoginStatus" role="alert" aria-live="polite"></p>
+      <div class="admin-lock-hint">Code défini au démarrage du serveur (12 caractères minimum).</div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal hero-content">
+        <h1>Offrez à votre intérieur <span>un nouvel éclat</span></h1>
+        <p>Canapés, fauteuils, matelas ou tapis : retrouvez un intérieur frais et soigné grâce à notre nettoyage à domicile à Abidjan. Estimez votre tarif et choisissez votre prestation.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-primary">
+            Réserver mon nettoyage
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#calculateur" class="btn btn-secondary">Estimer mon tarif</a>
+        </div>
+      </div>
+
+      <div class="hero-visual-wrapper reveal">
+        <div class="hero-photos-duo" id="heroCarousel" aria-label="Photos Elegance Home Multi Service">
+          <div class="hero-photo-card is-active" data-carousel-slide onclick="openLightbox('images/direction-travail.jpg', 'Elegance Home Multi Service')">
+            <img src="images/direction-travail.jpg" alt="Équipe Elegance Home Multi Service au travail" />
+            <div class="hero-photo-badge">
+              <span class="badge-dot"></span>
+              Elegance Home Multi Service
+            </div>
+          </div>
+          <div class="hero-photo-card" data-carousel-slide onclick="openLightbox('images/direction-bureau.jpg', 'Elegance Home Multi Service à Abidjan')">
+            <img src="images/direction-bureau.jpg" alt="Siège Elegance Home Multi Service bureau Abidjan" />
+            <div class="hero-photo-badge">
+              <span class="badge-dot"></span>
+              Notre siège à Abidjan
+            </div>
+          </div>
+          <div class="hero-carousel-controls" aria-label="Commandes des photos">
+            <button type="button" data-carousel-direction="previous" aria-label="Photo précédente">‹</button>
+            <button type="button" data-carousel-index="0" aria-label="Afficher la première photo" aria-current="true">1</button>
+            <button type="button" data-carousel-index="1" aria-label="Afficher la deuxième photo" aria-current="false">2</button>
+            <button type="button" data-carousel-direction="next" aria-label="Photo suivante">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compact trust indicators -->
+  <section class="stats" aria-label="Quelques chiffres">
+    <div class="container stats-grid">
+      <div class="stat-item reveal">
+        <h3>500+</h3>
+        <p>Clients satisfaits</p>
+      </div>
+      <div class="stat-item reveal">
+        <h3>24h</h3>
+        <p>Délai de réponse maximum</p>
+      </div>
+      <div class="stat-item reveal">
+        <h3>100%</h3>
+        <p>Service professionnel et sérieux</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <span class="subtitle">Nos prestations</span>
+        <h2>Des services haut de gamme et sur-mesure</h2>
+        <p>Découvrez notre gamme de nettoyage en profondeur pour restaurer l'éclat et l'hygiène de vos intérieurs.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card reveal">
+          <div class="service-icon-box">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 10V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v5"></path><path d="M3 10h18a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2z"></path><path d="M6 19v3M18 19v3"></path></svg>
+          </div>
+          <h3>Entretien de fauteuil</h3>
+          <p>Nettoyage en profondeur, désinfection et élimination des taches et odeurs sur tous types de tissus.</p>
+          <div class="service-price">À partir de <span>7 000 FCFA</span> / place</div>
+          <button type="button" class="service-action" data-service-choice="fauteuil">Estimer ce service</button>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card reveal">
+          <div class="service-icon-box">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </div>
+          <h3>Nettoyage de maison</h3>
+          <p>Ménage complet haut de gamme des pièces de vie, cuisines, sanitaires et traitement spécial des sols durs et boiseries.</p>
+          <div class="service-price">À partir de <span>20 000 FCFA</span></div>
+          <button type="button" class="service-action" data-service-choice="menage">Estimer ce service</button>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card reveal">
+          <div class="service-icon-box">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3>Hôtel & Résidence</h3>
+          <p>Entretien périodique ou permanent des parties communes, chambres et espaces d'accueil de vos résidences meublées.</p>
+          <div class="service-price">Sur <span>Devis personnalisé</span></div>
+          <button type="button" class="service-action" data-service-choice="residence">Demander un devis</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Pricing Estimator - NEW Feature -->
+  <section class="section-padding" id="calculateur">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <span class="subtitle">Tarifs</span>
+        <h2>Estimez le prix de votre service</h2>
+        <p>Choisissez une prestation et ses options pour obtenir une estimation.</p>
+      </div>
+
+      <div class="calculator-section reveal">
+        <div class="calc-grid">
+          <div class="calc-options">
+            <div class="calc-group">
+              <label>Type de meuble / service</label>
+              <div class="calc-select-grid">
+                <button type="button" class="calc-type-btn active" data-type="fauteuil">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 10V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v5"></path><path d="M3 10h18a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2z"></path><path d="M6 19v3M18 19v3"></path></svg>
+                  Fauteuil / Canapé
+                </button>
+                <button type="button" class="calc-type-btn" data-type="matelas">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"></rect><line x1="3" y1="12" x2="21" y2="12"></line><line x1="6" y1="17" x2="6" y2="21"></line><line x1="18" y1="17" x2="18" y2="21"></line></svg>
+                  Matelas
+                </button>
+                <button type="button" class="calc-type-btn" data-type="tapis">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"></rect><line x1="6" y1="6" x2="6" y2="18"></line><line x1="18" y1="6" x2="18" y2="18"></line><line x1="12" y1="6" x2="12" y2="18"></line></svg>
+                  Tapis
+                </button>
+                <button type="button" class="calc-type-btn" data-type="menage">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Ménage
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Suboptions based on selection -->
+            <div class="calc-group" id="suboption-container">
+              <!-- Fauteuil Configurator -->
+              <div class="calc-slider-wrap" id="opt-fauteuil">
+                <div class="calc-val-display">
+                  <span>Nombre de places (Assises) :</span>
+                  <span id="places-val" style="color: var(--secondary); font-size: 1.15rem;">1 place</span>
+                </div>
+                <input type="range" class="calc-slider" id="slider-places" min="1" max="10" value="1">
+              </div>
+
+              <!-- Matelas Configurator -->
+              <select class="calc-subopt" id="opt-matelas" style="display: none;">
+                <option value="10000">Lit simple (1 place) - 10 000 FCFA</option>
+                <option value="15000">Lit double (2 places) - 15 000 FCFA</option>
+                <option value="20000">Lit King/Queen Size - 20 000 FCFA</option>
+              </select>
+
+              <!-- Tapis Configurator -->
+              <select class="calc-subopt" id="opt-tapis" style="display: none;">
+                <option value="5000">Petit tapis (< 3m²) - 5 000 FCFA</option>
+                <option value="10000">Tapis moyen (3m² - 6m²) - 10 000 FCFA</option>
+                <option value="18000">Grand tapis (> 6m²) - 18 000 FCFA</option>
+              </select>
+
+              <!-- Ménage Configurator -->
+              <select class="calc-subopt" id="opt-menage" style="display: none;">
+                <option value="20000">Studio / 2 Pièces - 20 000 FCFA</option>
+                <option value="35000">Appartement 3-4 Pièces - 35 000 FCFA</option>
+                <option value="50000">Grande Villa / Résidence - 50 000 FCFA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-result-card">
+            <p>Estimation globale</p>
+            <div class="calc-price" id="estimated-total">7 000<span>FCFA</span></div>
+            <p style="text-transform: none; font-size: 0.85rem; color: rgba(255,255,255,0.5);">Estimé pour : <span id="summary-text" style="color: var(--secondary);">1 place de fauteuil</span></p>
+            <button type="button" class="btn btn-gold" id="btn-apply-calc" style="width: 100%;">
+              Appliquer au formulaire
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section-padding" id="apropos" style="background-color: #ffffff;">
+    <div class="container about-grid">
+      <div class="reveal about-content">
+        <span class="subtitle">Qui sommes-nous</span>
+        <h2>Le nettoyage professionnel à Abidjan</h2>
+        <p>
+          Elegance Home Multi Service nettoie canapés, matelas, tapis et maisons pour les particuliers et les professionnels, avec du matériel adapté et une équipe attentive.
+        </p>
+      </div>
+
+      <!-- About Visual Box with Interactive Photo Switcher -->
+      <div class="about-visual-box reveal">
+        <div class="about-photo-header">
+          <span class="about-photo-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            PDG & Directeur Général — M. Dosso
+          </span>
+          <span class="about-photo-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Abidjan, Côte d'Ivoire
+          </span>
+        </div>
+
+        <div class="about-photo-main-frame" id="aboutMainFrame" onclick="openCurrentAboutPhoto()">
+          <img src="images/direction-bureau.jpg" alt="Direction Elegance Home Multi Service au bureau" id="aboutMainImg" />
+          <div class="about-photo-zoom-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            Agrandir la photo
+          </div>
+        </div>
+
+        <div class="about-thumbnails-row">
+          <button type="button" class="about-thumb-btn active" onclick="switchAboutPhoto('images/direction-bureau.jpg', 'PDG — Directeur Général d\'Elegance Home Multi Service', this)">
+            <img src="images/direction-bureau.jpg" alt="PDG Elegance Home Multi Service au bureau" />
+            <div class="about-thumb-info">
+              <strong>M. Dosso — Au Bureau</strong>
+              <span>PDG & Directeur Général</span>
+            </div>
+          </button>
+
+          <button type="button" class="about-thumb-btn" onclick="switchAboutPhoto('images/direction-travail.jpg', 'PDG — Directeur Général en plein travail', this)">
+            <img src="images/direction-travail.jpg" alt="PDG Elegance Home Multi Service au travail" />
+            <div class="about-thumb-info">
+              <strong>M. Dosso — En Action</strong>
+              <span>Supervision & Leadership</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zones Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <span class="subtitle">Localisation</span>
+        <h2>Nos zones d'intervention</h2>
+        <p>Nous nous déplaçons rapidement dans toute la ville d'Abidjan et les communes environnantes.</p>
+      </div>
+
+      <div class="zones-card reveal">
+        <div class="zones-grid">
+          <div class="zone-block">
+            <h4>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Abidjan (Communes couvertes)
+            </h4>
+            <div class="zone-tags">
+              <span class="zone-tag">Cocody</span>
+              <span class="zone-tag">Yopougon</span>
+              <span class="zone-tag">Marcory</span>
+              <span class="zone-tag">Plateau</span>
+              <span class="zone-tag">Treichville</span>
+              <span class="zone-tag">Koumassi</span>
+              <span class="zone-tag">Riviera (1 à 4)</span>
+              <span class="zone-tag">Port-Bouët</span>
+              <span class="zone-tag">Adjamé</span>
+            </div>
+          </div>
+          <div class="zone-block">
+            <h4>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              Hors Abidjan & Villes de l'intérieur
+            </h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Interventions spéciales disponibles à Bassam, Assinie, et Yamoussoukro sur réservation planifiée. Contactez notre support pour vérifier les disponibilités.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section-padding" style="background-color: #f1f5f9;">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <span class="subtitle">Galerie</span>
+        <h2>Nos réalisations en images</h2>
+        <p>Aperçu en haute définition du résultat de nos techniques d'injection-extraction professionnelles.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card gallery-1 reveal" role="button" tabindex="0" data-gallery-src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=85" aria-label="Agrandir : Nettoyage canapé injecteur extracteur">
+          <span>Nettoyage Canapé Injecteur/Extracteur</span>
+        </div>
+        <div class="gallery-card gallery-2 reveal" role="button" tabindex="0" data-gallery-src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=85" aria-label="Agrandir : Ménage de fin de chantier et maison">
+          <span>Ménage de Fin de Chantier & Maison</span>
+        </div>
+        <div class="gallery-card gallery-3 reveal" role="button" tabindex="0" data-gallery-src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=85" aria-label="Agrandir : Traitement antibactérien de literie">
+          <span>Traitement Antibactérien de Literie</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos published from the admin dashboard -->
+  <section class="section-padding" id="videoNewsSection" style="background-color: #f8fafc;" hidden>
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="subtitle">Actualités</span>
+        <h2>Nos actualités en vidéo</h2>
+        <p>Découvrez les dernières nouvelles et réalisations d’Elegance Home Multi Service.</p>
+      </div>
+      <div class="video-news-grid" id="videoNewsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <span class="subtitle">Avis</span>
+        <h2>Ce que disent nos clients</h2>
+        <p>Découvrez les témoignages de ceux qui nous font confiance pour leur intérieur.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card-quote">“</div>
+          <p>Le nettoyage de mon canapé d'angle en velours a été impeccable. Toutes les taches de café et de feutre ont totalement disparu !</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-color: var(--primary);">K</div>
+            <div class="author-info">
+              <h4>M. Koffi</h4>
+              <span>Cocody Riviera</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card-quote">“</div>
+          <p>Équipe ponctuelle, polie et très rigoureuse. Ma literie a retrouvé une odeur de frais incroyable. Je recommande à 100%.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-color: var(--secondary);">A</div>
+            <div class="author-info">
+              <h4>Mme Awa</h4>
+              <span>Marcory Zone 4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card-quote">“</div>
+          <p>Le devis sur le site avec le simulateur est ultra pratique, et la prise de rendez-vous sur WhatsApp se fait en un clin d'œil.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-color: var(--primary-light);">Y</div>
+            <div class="author-info">
+              <h4>M. Yao</h4>
+              <span>Yopougon Maroc</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-padding" id="contact" style="background-color: #f6f9fc;">
+    <div class="container">
+      <div class="contact reveal">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="subtitle" style="color: var(--secondary);">Contactez-nous</span>
+            <h2>Demandez un nettoyage de luxe dès aujourd'hui</h2>
+            <p>Remplissez le formulaire de réservation. Nous vous recontacterons sous quelques heures pour valider la date.</p>
+            
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="contact-details">
+                  <span>Téléphone Direct</span>
+                  <a href="tel:+2250150475534">+225 01 50 47 55 34</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="14" rx="2" ry="2"></rect><polyline points="8 10 12 14 16 10"></polyline></svg>
+                </div>
+                <div class="contact-details">
+                  <span>Notre WhatsApp</span>
+                  <a href="https://wa.me/2250150475534" target="_blank">+225 01 50 47 55 34</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form id="rdvForm">
+            <div class="form-group">
+              <input type="text" id="nom" maxlength="120" autocomplete="name" placeholder="Votre nom complet" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" id="telephone" maxlength="40" autocomplete="tel" placeholder="Votre numéro de téléphone" required />
+            </div>
+            <div class="form-group">
+              <input type="text" id="ville" maxlength="120" autocomplete="address-level2" placeholder="Votre commune / Ville (ex: Cocody)" required />
+            </div>
+            <div class="form-group">
+              <textarea rows="4" id="message" maxlength="2000" placeholder="Décrivez vos besoins (ex: Nettoyage de canapé 3 places en velours)" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width: 100%;">Prendre rendez-vous</button>
+            <p id="rdvStatus" role="status" hidden></p>
+            <a id="rdvWhatsappLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Ouvrir WhatsApp pour envoyer votre demande</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Elegance Home Multi Service — Services de Nettoyage & Entretien de Luxe en Côte d’Ivoire.</p>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.4);">
+        Support disponible 6j/7 de 8h à 19h.
+      </p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Badge -->
+  <a href="https://wa.me/2250150475534" target="_blank" class="floating-whatsapp" aria-label="Discuter sur WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </a>
+  <button type="button" class="welcome-audio-toggle" id="welcomeAudioToggle" aria-pressed="false">▶ Écouter l’accueil</button>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer la vue">×</button>
+      <img src="" alt="" id="lightboxImg" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Script logic -->
+  <script>
+    // Lightbox & Photo Interaction
+    let currentAboutPhotoSrc = 'images/direction-bureau.jpg';
+    let currentAboutPhotoCap = 'Siège & Direction — Elegance Home Multi Service';
+
+    async function renderVideoNews() {
+      const section = document.getElementById('videoNewsSection');
+      const grid = document.getElementById('videoNewsGrid');
+      let news;
+      try {
+        const response = await fetch('/api/video-news', { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const result = await response.json();
+        if (!result || !Array.isArray(result.items)) throw new TypeError('Le serveur a renvoyé un format d’actualités incorrect.');
+        news = result.items;
+      } catch (error) {
+        console.error('Impossible de charger les actualités vidéo depuis le serveur.', error);
+        section.hidden = true;
+        return;
+      }
+
+      if (!Array.isArray(news) || news.length === 0) {
+        section.hidden = true;
+        grid.replaceChildren();
+        return;
+      }
+
+      const validNews = news.filter((item) =>
+        item &&
+        typeof item.title === 'string' &&
+        typeof item.url === 'string' &&
+        /^\/videos\/[0-9a-f-]{36}\.(mp4|webm|mov|m4v|3gp)$/i.test(item.url)
+      );
+
+      if (validNews.length === 0) {
+        section.hidden = true;
+        grid.replaceChildren();
+        return;
+      }
+
+      grid.replaceChildren(...validNews.map((item) => {
+        const card = document.createElement('article');
+        card.className = 'video-news-card';
+
+        const video = document.createElement('video');
+        video.className = 'video-news-frame';
+        video.title = `Vidéo : ${item.title}`;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.src = item.url;
+
+        const copy = document.createElement('div');
+        copy.className = 'video-news-copy';
+        const title = document.createElement('h3');
+        title.textContent = item.title;
+        copy.appendChild(title);
+
+        if (typeof item.description === 'string' && item.description.trim()) {
+          const description = document.createElement('p');
+          description.textContent = item.description;
+          copy.appendChild(description);
+        }
+
+        if (typeof item.createdAt === 'string' && !Number.isNaN(Date.parse(item.createdAt))) {
+          const date = document.createElement('time');
+          date.dateTime = item.createdAt;
+          date.textContent = new Date(item.createdAt).toLocaleDateString('fr-FR');
+          copy.appendChild(date);
+        }
+
+        card.append(video, copy);
+        return card;
+      }));
+      section.hidden = false;
+    }
+
+    renderVideoNews();
+    window.addEventListener('focus', renderVideoNews);
+    window.setInterval(() => {
+      if (!document.hidden) renderVideoNews();
+    }, 30000);
+
+    function initHeroCarousel() {
+      const carousel = document.getElementById('heroCarousel');
+      if (!carousel) return;
+
+      const slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
+      const indicators = Array.from(carousel.querySelectorAll('[data-carousel-index]'));
+      if (slides.length < 2) return;
+
+      let currentIndex = 0;
+      const showSlide = (index) => {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          const active = slideIndex === currentIndex;
+          slide.classList.toggle('is-active', active);
+          slide.setAttribute('aria-hidden', String(!active));
+        });
+        indicators.forEach((indicator, indicatorIndex) => {
+          indicator.setAttribute('aria-current', String(indicatorIndex === currentIndex));
+        });
+      };
+
+      carousel.querySelectorAll('[data-carousel-direction]').forEach((button) => {
+        button.addEventListener('click', () => {
+          showSlide(currentIndex + (button.dataset.carouselDirection === 'next' ? 1 : -1));
+        });
+      });
+      indicators.forEach((indicator) => {
+        indicator.addEventListener('click', () => showSlide(Number(indicator.dataset.carouselIndex)));
+      });
+
+      showSlide(0);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.setInterval(() => {
+          if (!document.hidden && !carousel.matches(':hover') && !carousel.contains(document.activeElement)) {
+            showSlide(currentIndex + 1);
+          }
+        }, 5000);
+      }
+    }
+
+    initHeroCarousel();
+
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const siteNavigation = document.getElementById('siteNavigation');
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = siteNavigation.classList.toggle('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuToggle.innerHTML = isOpen
+        ? '<span aria-hidden="true">×</span> Fermer'
+        : '<span aria-hidden="true">☰</span> Menu';
+    });
+
+    siteNavigation.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNavigation.classList.remove('is-open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.innerHTML = '<span aria-hidden="true">☰</span> Menu';
+      });
+    });
+
+    document.querySelectorAll('[data-gallery-src]').forEach((card) => {
+      const openGalleryImage = () => openLightbox(card.dataset.gallerySrc, card.innerText.trim());
+      card.addEventListener('click', openGalleryImage);
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openGalleryImage();
+        }
+      });
+    });
+
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      if (modal && img) {
+        img.src = src;
+        img.alt = caption || 'Elegance Home Multi Service';
+        if (cap) cap.textContent = caption || 'Elegance Home Multi Service';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox(event) {
+      if (event && event.target && event.target.closest('.lightbox-content') && !event.target.classList.contains('lightbox-close')) {
+        return;
+      }
+      const modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openCurrentAboutPhoto() {
+      openLightbox(currentAboutPhotoSrc, currentAboutPhotoCap);
+    }
+
+    function switchAboutPhoto(src, caption, btnEl) {
+      currentAboutPhotoSrc = src;
+      currentAboutPhotoCap = caption;
+      const mainImg = document.getElementById('aboutMainImg');
+      if (mainImg) {
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.src = src;
+          mainImg.alt = caption;
+          mainImg.style.opacity = '1';
+        }, 150);
+      }
+      document.querySelectorAll('.about-thumb-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        siteNavigation.classList.remove('is-open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.innerHTML = '<span aria-hidden="true">☰</span> Menu';
+      }
+    });
+
+    // Reveal elements as they approach the viewport, then stop observing them.
+    const revealElements = document.querySelectorAll('.reveal');
+    if (document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      revealElements.forEach((element) => element.classList.add('visible'));
+    } else {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          currentObserver.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -24px 0px'
+      });
+
+      revealElements.forEach((element) => {
+        const siblings = Array.from(element.parentElement.children).filter((sibling) => sibling.classList.contains('reveal'));
+        const siblingIndex = siblings.indexOf(element);
+        if (siblingIndex > 0) {
+          element.style.transitionDelay = `${Math.min(siblingIndex * 70, 210)}ms`;
+        }
+        observer.observe(element);
+      });
+    }
+
+    // Calculator Logic
+    const calcTypeBtns = document.querySelectorAll('.calc-type-btn');
+    const optFauteuil = document.getElementById('opt-fauteuil');
+    const optMatelas = document.getElementById('opt-matelas');
+    const optTapis = document.getElementById('opt-tapis');
+    const optMenage = document.getElementById('opt-menage');
+    
+    const sliderPlaces = document.getElementById('slider-places');
+    const placesVal = document.getElementById('places-val');
+    
+    const estimatedTotal = document.getElementById('estimated-total');
+    const summaryText = document.getElementById('summary-text');
+    const btnApplyCalc = document.getElementById('btn-apply-calc');
+    const contactMessage = document.getElementById('message');
+
+    // Price defaults are also the server's initial prices.
+    const DEFAULT_PRICES = {
+      fauteuil: 7000,
+      matelas_simple: 10000,
+      matelas_double: 15000,
+      matelas_king: 20000,
+      tapis_petit: 5000,
+      tapis_moyen: 10000,
+      tapis_grand: 18000,
+      menage_studio: 20000,
+      menage_apt: 35000,
+      menage_villa: 50000
+    };
+
+    let prices = { ...DEFAULT_PRICES };
+
+    // Dynamic dropdown rendering based on custom prices
+    function updateDropdownOptions() {
+      if (optMatelas) {
+        optMatelas.innerHTML = `
+          <option value="${prices.matelas_simple}">Lit simple (1 place) - ${prices.matelas_simple.toLocaleString('fr-FR')} FCFA</option>
+          <option value="${prices.matelas_double}">Lit double (2 places) - ${prices.matelas_double.toLocaleString('fr-FR')} FCFA</option>
+          <option value="${prices.matelas_king}">Lit King/Queen Size - ${prices.matelas_king.toLocaleString('fr-FR')} FCFA</option>
+        `;
+      }
+      if (optTapis) {
+        optTapis.innerHTML = `
+          <option value="${prices.tapis_petit}">Petit tapis (&lt; 3m²) - ${prices.tapis_petit.toLocaleString('fr-FR')} FCFA</option>
+          <option value="${prices.tapis_moyen}">Tapis moyen (3m² - 6m²) - ${prices.tapis_moyen.toLocaleString('fr-FR')} FCFA</option>
+          <option value="${prices.tapis_grand}">Grand tapis (&gt; 6m²) - ${prices.tapis_grand.toLocaleString('fr-FR')} FCFA</option>
+        `;
+      }
+      if (optMenage) {
+        optMenage.innerHTML = `
+          <option value="${prices.menage_studio}">Studio / 2 Pièces - ${prices.menage_studio.toLocaleString('fr-FR')} FCFA</option>
+          <option value="${prices.menage_apt}">Appartement 3-4 Pièces - ${prices.menage_apt.toLocaleString('fr-FR')} FCFA</option>
+          <option value="${prices.menage_villa}">Grande Villa / Résidence - ${prices.menage_villa.toLocaleString('fr-FR')} FCFA</option>
+        `;
+      }
+    }
+
+    // Run dynamic select updates
+    updateDropdownOptions();
+
+    let currentType = 'fauteuil';
+    let currentPriceEstimate = prices.fauteuil;
+    let currentDetailsText = '1 place de fauteuil/canapé';
+
+    // Handle service category switches
+    calcTypeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        calcTypeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        currentType = btn.dataset.type;
+        
+        // Hide all configurations
+        optFauteuil.style.display = 'none';
+        optMatelas.style.display = 'none';
+        optTapis.style.display = 'none';
+        optMenage.style.display = 'none';
+
+        // Show relevant configuration
+        if (currentType === 'fauteuil') {
+          optFauteuil.style.display = 'flex';
+        } else if (currentType === 'matelas') {
+          optMatelas.style.display = 'block';
+        } else if (currentType === 'tapis') {
+          optTapis.style.display = 'block';
+        } else if (currentType === 'menage') {
+          optMenage.style.display = 'block';
+        }
+
+        calculatePrice();
+      });
+    });
+
+    // Slider inputs
+    sliderPlaces.addEventListener('input', (e) => {
+      const places = e.target.value;
+      placesVal.textContent = places + (places > 1 ? ' places' : ' place');
+      calculatePrice();
+    });
+
+    // Select dropdown changes
+    [optMatelas, optTapis, optMenage].forEach(select => {
+      select.addEventListener('change', calculatePrice);
+    });
+
+    function calculatePrice() {
+      if (currentType === 'fauteuil') {
+        const places = parseInt(sliderPlaces.value);
+        currentPriceEstimate = places * prices.fauteuil;
+        currentDetailsText = `${places} place${places > 1 ? 's' : ''} de fauteuil/canapé`;
+      } else if (currentType === 'matelas') {
+        currentPriceEstimate = parseInt(optMatelas.value);
+        currentDetailsText = optMatelas.options[optMatelas.selectedIndex].text.split(' - ')[0];
+      } else if (currentType === 'tapis') {
+        currentPriceEstimate = parseInt(optTapis.value);
+        currentDetailsText = optTapis.options[optTapis.selectedIndex].text.split(' - ')[0];
+      } else if (currentType === 'menage') {
+        currentPriceEstimate = parseInt(optMenage.value);
+        currentDetailsText = optMenage.options[optMenage.selectedIndex].text.split(' - ')[0];
+      }
+
+      // Update UI
+      estimatedTotal.innerHTML = currentPriceEstimate.toLocaleString('fr-FR') + '<span>FCFA</span>';
+      summaryText.textContent = currentDetailsText;
+    }
+
+    async function loadPricesFromServer() {
+      try {
+        const response = await fetch('/api/prices', { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const saved = await response.json();
+        prices = { ...DEFAULT_PRICES, ...saved };
+        updateDropdownOptions();
+        calculatePrice();
+      } catch (error) {
+        console.error('Impossible de charger les tarifs actuels depuis le serveur.', error);
+      }
+    }
+    loadPricesFromServer();
+
+    // Apply calculator values to the contact form
+    btnApplyCalc.addEventListener('click', () => {
+      const messageBody = `Je souhaite réserver une prestation pour : ${currentDetailsText}.\nEstimation du tarif : ${currentPriceEstimate.toLocaleString('fr-FR')} FCFA.`;
+      contactMessage.value = messageBody;
+      
+      // Scroll to contact form
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      contactMessage.focus();
+    });
+
+    document.querySelectorAll('[data-service-choice]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const service = button.dataset.serviceChoice;
+        if (service === 'residence') {
+          contactMessage.value = 'Je souhaite obtenir un devis pour l’entretien de mon hôtel ou de ma résidence.';
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+          contactMessage.focus({ preventScroll: true });
+          return;
+        }
+
+        document.querySelector(`.calc-type-btn[data-type="${service}"]`).click();
+        document.getElementById('calculateur').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Form submission
+    document.getElementById('rdvForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const nom = document.getElementById('nom').value.trim();
+      const telephone = document.getElementById('telephone').value.trim();
+      const ville = document.getElementById('ville').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const submitButton = this.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      const link = document.getElementById('rdvWhatsappLink');
+      link.hidden = true;
+      try {
+        const response = await fetch('/api/appointments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nom, telephone, ville, message })
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || `HTTP ${response.status}`);
+
+        const text = encodeURIComponent(
+          `Bonjour Elegance Home,\nJe souhaite prendre rendez-vous.\n\n*Nom:* ${nom}\n*Téléphone:* ${telephone}\n*Ville:* ${ville}\n*Détails du besoin:* ${message}`
+        );
+        const whatsappUrl = `https://wa.me/2250150475534?text=${text}`;
+        this.reset();
+        const status = document.getElementById('rdvStatus');
+        status.textContent = 'Votre demande a été enregistrée. Notre équipe vous recontactera sous peu.';
+        status.hidden = false;
+        link.href = whatsappUrl;
+        link.hidden = false;
+        try {
+          const whatsappWindow = window.open(whatsappUrl, '_blank');
+          if (whatsappWindow) whatsappWindow.opener = null;
+        } catch (error) {
+          console.warn('WhatsApp ne peut pas être ouvert automatiquement.', error);
+        }
+      } catch (error) {
+        console.error('Impossible d’enregistrer la demande de rendez-vous.', error);
+        const status = document.getElementById('rdvStatus');
+        status.textContent = 'La demande n’a pas pu être enregistrée. Vérifiez votre connexion et réessayez.';
+        status.hidden = false;
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+
+    const adminLockOverlay = document.getElementById('adminLockOverlay');
+    const adminLockForm = document.getElementById('adminLockForm');
+    const adminCodeInput = document.getElementById('adminCodeInput');
+    const openAdminLock = document.getElementById('openAdminLock');
+    const closeAdminLock = document.getElementById('closeAdminLock');
+    const adminLoginStatus = document.getElementById('adminLoginStatus');
+
+    if (openAdminLock) {
+      openAdminLock.addEventListener('click', () => {
+        adminLoginStatus.textContent = '';
+        adminLockOverlay.classList.remove('hidden');
+        adminCodeInput.focus();
+      });
+    }
+
+    closeAdminLock.addEventListener('click', () => {
+      adminLockOverlay.classList.add('hidden');
+      adminCodeInput.value = '';
+      adminLoginStatus.textContent = '';
+      if (openAdminLock) openAdminLock.focus();
+    });
+
+    adminLockOverlay.addEventListener('click', (event) => {
+      if (event.target === adminLockOverlay) closeAdminLock.click();
+    });
+
+    adminLockForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = adminLockForm.querySelector('button[type="submit"]');
+      adminLoginStatus.textContent = '';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Vérification…';
+      try {
+        const response = await fetch('/api/admin-login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: adminCodeInput.value.trim() })
+        });
+        const result = await response.json();
+        if (!response.ok) {
+          throw new Error(response.status === 401 ? 'Code incorrect. Vérifie-le puis réessaie.' : result.error || `Erreur HTTP ${response.status}.`);
+        }
+        window.location.href = 'admin.html';
+      } catch (error) {
+        console.error('Échec de connexion administrateur.', error);
+        adminLoginStatus.textContent = error.message || 'Impossible de contacter le serveur.';
+        adminCodeInput.value = '';
+        adminCodeInput.focus();
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Ouvrir le dashboard';
+      }
+    });
+
+    // Initialize calculator
+    calculatePrice();
+  </script>
+  <script src="animations.js"></script>
+
+  <!-- Optional spoken welcome -->
+  <script>
+    const welcomeAudioToggle = document.getElementById('welcomeAudioToggle');
+    if (!('speechSynthesis' in window)) {
+      welcomeAudioToggle.hidden = true;
+    } else {
+      const welcomeMessage =
+        "Bienvenue chez Elegance Home Multi Service. Nous sommes là pour vous. " +
+        "Fauteuils, canapés, matelas et tapis : contactez-nous pour choisir votre service et demander un devis.";
+
+      welcomeAudioToggle.addEventListener('click', () => {
+        if (window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+          welcomeAudioToggle.textContent = '▶ Écouter l’accueil';
+          welcomeAudioToggle.setAttribute('aria-pressed', 'false');
+          return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(welcomeMessage);
+        utterance.lang = 'fr-FR';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          welcomeAudioToggle.textContent = '▶ Écouter l’accueil';
+          welcomeAudioToggle.setAttribute('aria-pressed', 'false');
+        };
+        utterance.onerror = () => {
+          welcomeAudioToggle.textContent = '▶ Réécouter l’accueil';
+          welcomeAudioToggle.setAttribute('aria-pressed', 'false');
+        };
+        welcomeAudioToggle.textContent = '■ Arrêter l’accueil';
+        welcomeAudioToggle.setAttribute('aria-pressed', 'true');
+        window.speechSynthesis.speak(utterance);
+      });
+    }
+  </script>
+</body>
+</html>

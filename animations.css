@@ -1,0 +1,180 @@
+:root {
+  --accent: #e5a93b;
+  --accent-2: #1d72b8;
+}
+
+.service-card,
+.feature-card,
+.pricing-card,
+.testimonial-card,
+.gallery-card,
+.hero-card,
+.video-news-card {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.service-icon-box,
+.feature-card-icon,
+.logo-icon {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn,
+.nav-links a,
+.filter-tab {
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-title-wrap h2 {
+  position: relative;
+}
+
+.section-title-wrap h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 70%;
+  height: 5px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.section-title-wrap:hover h2::after,
+.section-title-wrap:focus-within h2::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cta-banner a.btn::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: 24px;
+  background: linear-gradient(90deg, rgba(229, 169, 59, 0.08), rgba(29, 114, 184, 0.06));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.cta-banner a.btn:hover::after {
+  opacity: 1;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .service-card:hover,
+  .feature-card:hover,
+  .pricing-card:hover,
+  .testimonial-card:hover,
+  .gallery-card:hover,
+  .hero-card:hover,
+  .video-news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
+  }
+
+  .service-icon-box:hover,
+  .feature-card-icon:hover,
+  .logo-icon:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn:active,
+.nav-links a:active,
+.filter-tab:active {
+  transform: scale(0.98);
+}
+
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.filter-tab:focus-visible,
+.gallery-card:focus-visible {
+  outline: 3px solid rgba(229, 169, 59, 0.75);
+  outline-offset: 3px;
+}
+
+@keyframes menu-drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links.is-open {
+  animation: menu-drop-in 0.18s ease-out both;
+}
+
+@keyframes dashboard-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body:not(.locked) .stats > .card,
+body:not(.locked) .dashboard-layout > .panel,
+body:not(.locked) .dashboard-layout > .sidebar {
+  animation: dashboard-enter 0.35s ease-out both;
+}
+
+body:not(.locked) .stats > .card:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+body:not(.locked) .stats > .card:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+body:not(.locked) .stats > .card:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+body:not(.locked) .dashboard-layout > .panel {
+  animation-delay: 0.08s;
+}
+
+body:not(.locked) .dashboard-layout > .sidebar {
+  animation-delay: 0.14s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .fade-left {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "fauteuil":  7000,
+    "matelas_simple":  10000,
+    "matelas_double":  15000,
+    "matelas_king":  20000,
+    "tapis_petit":  5000,
+    "tapis_moyen":  10000,
+    "tapis_grand":  18000,
+    "menage_studio":  20000,
+    "menage_apt":  35000,
+    "menage_villa":  50000
+}
